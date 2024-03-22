@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Coding Challenge 6
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                background-color: lightseagreen;
+            }
+           
+        </style>
+    </head>
+    <body>
+        <h1> Quadratic Formula </h1>
+
+        <button onclick="solve()">Find the root</button>
+
+        <h4 id="result"></h4>
+
+        <script>
+            function solve(){
+               var A=parseInt(prompt("Enter a number for a:"));
+               var B=parseInt(prompt("Enter a number for b:"));
+               var C=parseInt(prompt("Enter a number for c:"));
+               function discriminant(A, B, C){
+                var X=Math.sqrt((B*B)-(4*A*C));
+                var Y=(B*B)-(4*A*C)
+                if(Y==0){
+                    var x="The value of x is " + ((-1*B)+X)/(2*A);
+                    return x;
+                }
+                if(Y>0){
+                    var x1=((-1*B) + X)/(2*A);
+                    var x2=((-1*B) - X)/(2*A);
+                    var val="The value of x is " + x1 + " and " + x2;
+                    return val;
+                }
+                if (Y<0){
+                    var Z = "The Valus of X are Imaginary";
+                    return Z;
+                }
+               }
+               document.getElementById("result").innerHTML=discriminant(A, B, C);
+            }
+        </script>
+    </body>
+</html>
