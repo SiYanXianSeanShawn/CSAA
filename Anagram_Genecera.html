@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Anagram</title>
+<style>
+body {
+    background-color: #8B0000;
+    color: white; 
+}
+</style>
+</head>
+<body>
+
+<script>
+
+function anagram(input1, input2) {
+
+    const cleanInput1 = input1.replace(/[^\w]/g, '').toLowerCase();
+    const cleanInput2 = input2.replace(/[^\w]/g, '').toLowerCase();
+
+    const sortedInput1 = cleanInput1.split('').sort().join('');
+    const sortedInput2 = cleanInput2.split('').sort().join('');
+    
+
+    return sortedInput1 === sortedInput2;
+}
+
+
+function checkAnagram() {
+
+    const word1 = document.getElementById('word1').value;
+    const word2 = document.getElementById('word2').value;
+
+
+    const areAnagrams = anagram(word1, word2);
+
+    if (areAnagrams) {
+        alert(`${word1} and ${word2} are anagrams.`);
+    } else {
+        alert(`${word1} and ${word2} are not anagrams.`);
+    }
+
+
+    return false;
+}
+</script>
+
+<h2>Anagram Checker</h2>
+
+<form onsubmit="return checkAnagram()">
+  <label for="word1">Word 1:</label>
+  <input type="text" id="word1" name="word1"><br><br>
+  <label for="word2">Word 2:</label>
+  <input type="text" id="word2" name="word2"><br><br>
+  <input type="submit" value="Check Anagram">
+</form>
+
+</body>
+</html>
